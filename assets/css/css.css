@@ -1,4 +1,6 @@
-.intro{
-    margin:auto;
-    color:blue;
-}
+#wrapper {
+    width: 600px;
+    padding: 20px;
+    margin: 0 auto;
+  }
+  
