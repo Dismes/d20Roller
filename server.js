@@ -1,3 +1,5 @@
+const path = require("path");
+
 var express = require("express");
 var bodyParser = require("body-parser");
 
@@ -17,7 +19,7 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 routes = require ("./controller/controller.js");
-
+app.use(express.static(path.join(__dirname, '/assets')));
 app.use("/", routes);
 
 app.listen(port);
