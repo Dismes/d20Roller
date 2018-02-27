@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Dismes/d20Roller#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "browserify": "^16.1.0",
     "express": "^4.16.2",
     "express-handlebars": "^3.0.0",
     "path": "^0.12.7"
