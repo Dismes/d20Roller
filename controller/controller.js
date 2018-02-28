@@ -1,17 +1,16 @@
 var express = require("express");
 
-var router = express.Router();
 
+module.exports = function(app){
 
-router.get("/hi", function(req, res){
-    body = {
-        roll: 20,
-    }
-    res.render("index")
-})
+    app.get('/hi', function(req, res){
+        var appear = {
+            roll: 20
+        }
+        res.render("index", appear);
+    })
 
-router.get("/", function(req, res){
-    res.render("index")
-})
-
-module.exports = router;
+    app.get("/", function(req, res){
+        res.render("index");
+    })
+}

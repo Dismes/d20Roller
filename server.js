@@ -2,17 +2,16 @@ const path = require("path");
 
 var express = require("express");
 var bodyParser = require("body-parser");
-
 var port = process.env.PORT || 3000;
-
 var app = express();
+
+
 
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static(path.join(__dirname, "/public")));
-
-app.use(bodyParser.urlencoded({
-    extended: false
-}));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.text());
 
 // Set Handlebars.
 var exphbs = require("express-handlebars");
@@ -22,12 +21,10 @@ app.engine("handlebars", exphbs({
 }));
 app.set("view engine", "handlebars");
 
-routes = require("./controller/controller.js");
 
-//app.use(express.static(path.join(__dirname, '/assets')));
+require("./controller/controller.js")(app)
 
-app.get('/', routes)
 
 app.listen(port, function () {
-    console.log("Server running!")
+    console.log("Server running! on " + port)
 });
